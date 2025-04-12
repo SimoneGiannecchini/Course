@@ -1,0 +1,15 @@
+{
+  "name": "course-simulation",
+  "version": "1.0.0",
+  "description": "Course registration simulation using TypeScript.",
+  "main": "dist/index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "verify": "npm run tsc"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
