@@ -1,0 +1,14 @@
+# Cartelle da ignorare
+node_modules/
+dist/
+
+# File di log
+npm-debug.log
+yarn-error.log
+
+# Output compilato
+*.js
+
+# Altro (opzionale)
+.DS_Store
+.env
