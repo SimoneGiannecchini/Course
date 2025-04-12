@@ -84,18 +84,23 @@ Copia i comandi che GitHub ti mostra dopo la creazione, ad esempio:
 git remote add origin https://github.com/TUO-USERNAME/includo.git
 git branch -M main
 git push -u origin main
-📌 Tecnologie usate
+```
+
+
+## 📌 Tecnologie usate
 TypeScript
 
 Programmazione a oggetti
 
 Logica di interazione tra entità
 
-✍️ Autore
-Simone Giannecchini – GitHub
+---
 
-## 📄 Licenza
+## Licenza
 
-Il progetto è rilasciato sotto licenza [MIT](https://opensource.org/licenses/MIT).
- Apri il progetto su [CodePen](https://codepen.io/SimoneGiannecchini/pen/raNRRGe)
+Questo progetto è rilasciato sotto licenza [MIT](https://opensource.org/licenses/MIT).
+
+
+
+
 
