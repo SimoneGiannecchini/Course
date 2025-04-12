@@ -1,141 +1,143 @@
-interface IPartecipante {
-    nome: string;
-    cognome: string;
-    paeseOrigine: string;
-    livelloIstruzione: string;
-    competenzeLinguistiche: string[];
-    ambitoFormazione: string;
-    iscrivitiCorso(corso: ICorso): void;
+interface IParticipant {
+    firstName: string;
+    lastName: string;
+    countryOfOrigin: string;
+    educationLevel: string;
+    languageSkills: string[];
+    trainingField: string;
+    enrollInCourse(course: ICourse): void;
   }
   
-  interface ICorso {
-    titolo: string;
-    descrizione: string;
-    settoreProfessionale: string;
-    durata: number;
-    iscritti: IPartecipante[];
-    aggiungiPartecipante(partecipante: IPartecipante): void;
+  interface ICourse {
+    title: string;
+    description: string;
+    professionalSector: string;
+    duration: number;
+    enrolledParticipants: IParticipant[];
+    addParticipant(participant: IParticipant): void;
   }
   
-  interface IAzienda {
-    nomeAzienda: string;
-    settoreAttivita: string;
-    descrizione: string;
-    posizioniAperte: string[];
-    offriPosizione(partecipante: IPartecipante, posizione: string): void;
+  interface ICompany {
+    companyName: string;
+    businessSector: string;
+    description: string;
+    openPositions: string[];
+    offerPosition(participant: IParticipant, position: string): void;
   }
   
-  class Partecipante implements IPartecipante {
+  class Participant implements IParticipant {
     constructor(
-      public nome: string,
-      public cognome: string,
-      public paeseOrigine: string,
-      public livelloIstruzione: string,
-      public competenzeLinguistiche: string[],
-      public ambitoFormazione: string
+      public firstName: string,
+      public lastName: string,
+      public countryOfOrigin: string,
+      public educationLevel: string,
+      public languageSkills: string[],
+      public trainingField: string
     ) {}
   
-    iscrivitiCorso(corso: ICorso): void {
-      console.log(`${this.nome} ${this.cognome} si è iscritto al corso: ${corso.titolo}`);
-      corso.aggiungiPartecipante(this);
+    enrollInCourse(course: ICourse): void {
+      console.log(`${this.firstName} ${this.lastName} has enrolled in the course: ${course.title}`);
+      course.addParticipant(this);
     }
   }
   
-  class Corso implements ICorso {
-    iscritti: IPartecipante[] = [];
+  class Course implements ICourse {
+    enrolledParticipants: IParticipant[] = [];
   
     constructor(
-      public titolo: string,
-      public descrizione: string,
-      public settoreProfessionale: string,
-      public durata: number
+      public title: string,
+      public description: string,
+      public professionalSector: string,
+      public duration: number
     ) {}
   
-    aggiungiPartecipante(partecipante: IPartecipante): void {
-      this.iscritti.push(partecipante);
-      console.log(`Partecipante ${partecipante.nome} ${partecipante.cognome} aggiunto al corso: ${this.titolo}`);
+    addParticipant(participant: IParticipant): void {
+      this.enrolledParticipants.push(participant);
+      console.log(`Participant ${participant.firstName} ${participant.lastName} added to the course: ${this.title}`);
     }
   }
   
-  class Azienda implements IAzienda {
+  class Company implements ICompany {
     constructor(
-      public nomeAzienda: string,
-      public settoreAttivita: string,
-      public descrizione: string,
-      public posizioniAperte: string[]
+      public companyName: string,
+      public businessSector: string,
+      public description: string,
+      public openPositions: string[]
     ) {}
   
-    offriPosizione(partecipante: IPartecipante, posizione: string): void {
-      if (this.posizioniAperte.includes(posizione)) {
-        console.log(`L'azienda ${this.nomeAzienda} offre la posizione "${posizione}" a ${partecipante.nome} ${partecipante.cognome}.`);
+    offerPosition(participant: IParticipant, position: string): void {
+      if (this.openPositions.includes(position)) {
+        console.log(`${this.companyName} offers the position "${position}" to ${participant.firstName} ${participant.lastName}.`);
       } else {
-        console.log(`La posizione "${posizione}" non è disponibile presso ${this.nomeAzienda}.`);
+        console.log(`The position "${position}" is not available at ${this.companyName}.`);
       }
     }
   }
   
-  const partecipante1 = new Partecipante(
+  const participant1 = new Participant(
     "Mario",
     "Rossi",
-    "Italia",
-    "Diploma",
-    ["Italiano", "Inglese"],
-    "Informatica"
+    "Italy",
+    "High School Diploma",
+    ["Italian", "English"],
+    "Computer Science"
   );
   
-  const partecipante2 = new Partecipante(
+  const participant2 = new Participant(
     "Luigi",
     "Bianchi",
-    "Marocco",
-    "Laurea",
-    ["Arabo", "Francese", "Italiano"],
+    "Morocco",
+    "University Degree",
+    ["Arabic", "French", "Italian"],
     "Marketing"
   );
   
-  const partecipante3 = new Partecipante(
+  const participant3 = new Participant(
     "Fatima",
     "El Mansouri",
     "Tunisia",
-    "Diploma",
-    ["Arabo", "Inglese"],
+    "High School Diploma",
+    ["Arabic", "English"],
     "Design"
   );
   
-  const corsoInformatica = new Corso(
-    "Corso di Informatica",
-    "Introduzione alla programmazione, algoritmi e sviluppo web.",
-    "Tecnologia",
+  const courseCS = new Course(
+    "Computer Science Course",
+    "Introduction to programming, algorithms, and web development.",
+    "Technology",
     40
   );
   
-  const corsoMarketing = new Corso(
-    "Corso di Marketing Digitale",
-    "Strategie di marketing online, social media e pubblicità digitale.",
+  const courseMarketing = new Course(
+    "Digital Marketing Course",
+    "Online marketing strategies, social media, and digital advertising.",
     "Marketing",
     30
   );
   
-  const corsoDesign = new Corso(
-    "Corso di Design Grafico",
-    "Nozioni di design, uso dei principali software grafici e tecniche creative.",
+  const courseDesign = new Course(
+    "Graphic Design Course",
+    "Basics of design, use of main graphic software, and creative techniques.",
     "Design",
     35
   );
   
-  const aziendaPartner = new Azienda(
+  const partnerCompany = new Company(
     "TechSolutions",
-    "Tecnologia",
-    "Azienda leader nel settore IT che supporta l'inclusione dei migranti nel mondo del lavoro.",
-    ["Sviluppatore Junior", "Tecnico IT"]
+    "Technology",
+    "Leading IT company promoting migrant inclusion in the workforce.",
+    ["Junior Developer", "IT Technician"]
   );
   
-  partecipante1.iscrivitiCorso(corsoInformatica);
-  partecipante2.iscrivitiCorso(corsoMarketing);
-  partecipante3.iscrivitiCorso(corsoDesign);
-  partecipante2.iscrivitiCorso(corsoInformatica);
-  aziendaPartner.offriPosizione(partecipante1, "Sviluppatore Junior");
-  aziendaPartner.offriPosizione(partecipante3, "Designer Grafico");
+  participant1.enrollInCourse(courseCS);
+  participant2.enrollInCourse(courseMarketing);
+  participant3.enrollInCourse(courseDesign);
+  participant2.enrollInCourse(courseCS);
   
-  console.log("\nIscritti al corso di Informatica:", corsoInformatica.iscritti);
-  console.log("Iscritti al corso di Marketing:", corsoMarketing.iscritti);
-  console.log("Iscritti al corso di Design:", corsoDesign.iscritti);
+  partnerCompany.offerPosition(participant1, "Junior Developer");
+  partnerCompany.offerPosition(participant3, "Graphic Designer");
+  
+  console.log("\nParticipants in the Computer Science Course:", courseCS.enrolledParticipants);
+  console.log("Participants in the Marketing Course:", courseMarketing.enrolledParticipants);
+  console.log("Participants in the Design Course:", courseDesign.enrolledParticipants);
+  
