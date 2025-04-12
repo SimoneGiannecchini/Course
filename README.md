@@ -1,97 +1,101 @@
-# Simulazione di Iscrizione a Corso
+# IncluDO – Simulazione di Iscrizione a Corso Formativo per Migranti 🧩
 
-A Pen created on CodePen.
+> Progetto sviluppato in **TypeScript** per simulare il funzionamento di una scuola di formazione rivolta a migranti.  
+Modella l’interazione tra **partecipanti**, **corsi di formazione** e **aziende partner**.
 
-Original URL: [https://codepen.io/SimoneGiannecchini/pen/raNRRGe](https://codepen.io/SimoneGiannecchini/pen/raNRRGe).
-
-# IncluDO – Sistema di Formazione per Migranti
-
-Questo progetto, sviluppato in **TypeScript**, simula il funzionamento di una scuola di formazione per migranti.  
-Modella l’interazione tra **partecipanti**, **corsi di formazione** e **aziende partner** che offrono opportunità lavorative.
+🌐 **Live demo su CodePen**  
+🔗 [Vai alla demo](https://codepen.io/SimoneGiannecchini/pen/raNRRGe)
 
 ---
 
-## 👤 Partecipante
+## 🧑‍🎓 Partecipante
 
-Un partecipante rappresenta un migrante che vuole formarsi.
+Rappresenta un migrante che desidera partecipare a un corso.
 
-### Funzioni:
-- **Registrazione dati**: nome, cognome, Paese, studi, lingue, settore d’interesse
-- **Iscrizione a un corso** → con il metodo `iscrivitiCorso()`
+**Caratteristiche:**
+- Dati anagrafici: nome, cognome, paese di origine
+- Livello di istruzione, competenze linguistiche, ambito formativo
+- Funzione: `enrollInCourse(course)`
 
 ---
 
 ## 📚 Corso
 
-Un corso rappresenta un percorso formativo offerto dalla scuola.
+Rappresenta un percorso formativo.
 
-### Funzioni:
-- **Informazioni base**: titolo, descrizione, settore, durata
-- **Gestione degli iscritti**
-- **Aggiunta partecipante** → con il metodo `aggiungiPartecipante()`
+**Caratteristiche:**
+- Titolo, descrizione, settore professionale, durata
+- Elenco iscritti
+- Funzione: `addParticipant(participant)`
 
 ---
 
 ## 🏢 Azienda
 
-Un’azienda partner che offre tirocini o impieghi.
+Un’azienda partner che collabora offrendo posizioni lavorative.
 
-### Funzioni:
-- **Dettagli azienda**: nome, settore, descrizione
-- **Elenco posizioni aperte**
-- **Offerta di lavoro a un partecipante** → con `offriPosizione()`
+**Caratteristiche:**
+- Nome, settore, descrizione
+- Elenco posizioni disponibili
+- Funzione: `offerPosition(participant, position)`
 
 ---
 
-## 🔗 Collegamento tra le parti
+## 🔗 Come interagiscono
 
-- Un **partecipante** si iscrive a un **corso**
-- Un **corso** gestisce gli iscritti
-- Un’**azienda** può proporre un lavoro a un partecipante iscritto
+1. Un **partecipante** si iscrive a un **corso**
+2. Il **corso** gestisce l’elenco degli iscritti
+3. Un’**azienda** può proporre un lavoro a un partecipante
 
 ---
 
 ## 🎯 Obiettivo del progetto
 
-Creare un sistema semplice ma chiaro per simulare:
-- L’inclusione formativa
-- Il collegamento tra migranti e aziende
-- La logica base di gestione utenti e offerte
+✅ Simulare l’inclusione formativa  
+✅ Mappare i legami tra partecipanti, corsi e aziende  
+✅ Introdurre alla logica ad oggetti con TypeScript
 
 ---
 
+## 🚀 Come esportare da CodePen
 
-## ✅ 1. Esporta il progetto da CodePen
-
-1. Vai su CodePen nel progetto che vuoi esportare.
-2. In basso a destra clicca su **"Export"**.
-3. Seleziona **"Export .zip"**.
-4. Scarica il file `.zip` e **estrailo in una cartella** sul tuo computer (es. `includo`).
+1. Apri il progetto su [CodePen](https://codepen.io/SimoneGiannecchini/pen/raNRRGe)
+2. Clicca su **Export > Export .zip**
+3. Estrai i file in una cartella sul tuo PC (es: `includo`)
 
 ---
 
-## ✅ 2. Inizializza un progetto Git
-
-Apri la cartella estratta e:
-
-1. Clicca con il tasto destro e seleziona **"Apri nel terminale"** (oppure apri VSCode in quella cartella).
-2. Esegui questi comandi nel terminale:
+## 📦 Setup Git & GitHub
 
 ```bash
 git init
 git add .
-git commit -m "Primo commit"
+git commit -m "Primo commit – Progetto IncluDO"
 
-✅ 3. Crea un nuovo repository su GitHub
-Vai su https://github.com
+Crea un repository su GitHub:
+Vai su github.com
 
-Clicca su "New repository"
+Clicca su New repository
 
-Dai un nome al progetto (es. includo)
+Nomina il repo (es: includo) – non aggiungere README o .gitignore
 
-NON aggiungere README, .gitignore o licenza (hai già tutto localmente)
+Copia i comandi che GitHub ti mostra dopo la creazione, ad esempio:
 
-Clicca su "Create repository"
+git remote add origin https://github.com/TUO-USERNAME/includo.git
+git branch -M main
+git push -u origin main
+📌 Tecnologie usate
+TypeScript
 
-✅ 4. Collega il repository remoto e carica i file
-Dopo aver creato il repo, GitHub ti mostrerà i comandi. Copia e incolla questi nel terminale:
+Programmazione a oggetti
+
+Logica di interazione tra entità
+
+✍️ Autore
+Simone Giannecchini – GitHub
+
+## 📄 Licenza
+
+Il progetto è rilasciato sotto licenza [MIT](https://opensource.org/licenses/MIT).
+ Apri il progetto su [CodePen](https://codepen.io/SimoneGiannecchini/pen/raNRRGe)
+
